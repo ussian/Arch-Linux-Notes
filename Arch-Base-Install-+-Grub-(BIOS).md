@@ -1,4 +1,4 @@
-####Table of contents
+#### Table of contents
  * [Pre reading notes](Arch-Base-Install-+-Grub-(BIOS).md#pre-reading-notes)
  * [Create bootable media](Arch-Base-Install-+-Grub-(BIOS).md#create-bootable-media)
  * [Arch Linux iso image Boot Menu](Arch-Base-Install-+-Grub-(BIOS).md#arch-linux-iso-image-boot-menu)
@@ -7,7 +7,7 @@
  * [Formating](Arch-Base-Install-+-Grub-(BIOS).md#formating)
  * [Configuration and installalltion base system](Arch-Base-Install-+-Grub-(BIOS).md#configuration-and-installalltion-base-system)
 
-###Pre reading notes
+### Pre reading notes
 
  Notes completed xx-xx-xxxx
  Last update xx-xx-xxxx
@@ -19,7 +19,7 @@ Disclaimer: Im no way a Linux or Arch Linux pro user, ive just written down what
 A good place to read up on most if not all of this stuff is the [Arch wiki](https://wiki.archlinux.org/).
 Else a quick google search can get you a long way
 
-###Create bootable media
+### Create bootable media
 
 Make a bootable device(USB, CD/DVD etc.) with archlinux iso ([Download site](https://www.archlinux.org/download/)). <BR>
 You can do this with [Rufus](https://rufus.akeo.ie/) on windows (its free), or if using Ubuntu follow these [instructions] (https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu).
@@ -27,7 +27,7 @@ Else you run the following command or something similar.
 
 `sudo dd bs=4M if=/home/ussian/Downloads/ArchVersion.iso of=/dev/sdb1 && sync`<BR>
 replace the `/home/ussian/Downloads/ArchVersion.iso` and `/dev/sdb1` with the appropiate path.<BR>
-###Arch Linux iso image Boot Menu<BR>
+### Arch Linux iso image Boot Menu<BR>
 Boot the Arch install media (USB, CD/DVD etc.)<BR>
 You do this by rebooting and at the beginning of the startup process (ie. BIOS startup) and hiting F9 (or whatever F# button that opens the bootmenu) and then choosing your install media. <BR>
 If it´s booted correctly into the bootmedia, it should greet you with an Arch Linux menu and the following options <BR><BR>
@@ -50,7 +50,7 @@ After choosing 64 or 32 bit arch will do its thing for a while and when its read
 
 This means you have a root prompt ready for use. **Be warned** you can potentionaly destroy all data on your disks in this terminal. its most likely to happen during the partioning and formatting.<BR>
 
-###First things first
+### First things first
 
 First thing to is remove the anoying beeb sound whenever you tab-complete or try to tab-complete a command. (or doing something the terminal doesnt like in general)<BR>
 ```setterm -blength 0```
@@ -78,7 +78,7 @@ to make sure the clock is accurate do this:<BR>
 
 
 
-###Partioning and mounting
+### Partioning and mounting
 There is a handfull of tools and commands avaiable ill only be using some of them. You check the list [here](https://wiki.archlinux.org/index.php/Partitioning#Partitioning_tools)<BR>
 To list file systems and disks:<BR>
 `lsblk -f -p`<BR>
@@ -129,7 +129,7 @@ You will then be asked if you are sure that you want to make these changes. type
 Afterwards you just the hoverbar to the "`[  Quit  ]`" and hit enter to exit.<BR>
 
 
-###Formating
+### Formating
 Now when we are done with partioning we need to format the partion(And again more details in [Arch Wiki filesystems](https://wiki.archlinux.org/index.php/File_systems#Create_a_filesystem))<BR>
 We will just format our single root partion to the filsystem "ext4". To do this run this command:<BR>
 `mkfs.ext4 /dev/sda1`<BR>
@@ -154,7 +154,7 @@ you´ll also need to mount your other partions if you have any other partions. I
 └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-###Configuration and installalltion base system
+### Configuration and installalltion base system
 
 
 The `base` is needed for Arch Linux and the `base-devel` is used for build packages and more.<BR>
@@ -261,16 +261,16 @@ And congratulaition you now have an Arch Linux OS running! <BR>
 The rest of this is just personalisation, but feel free to read on. (change packages out like you want (ie. desktop envoirment etc.))<BR>
 
 
-###Personalisation of arch
+### Personalisation of arch
 
-####add user
+#### add user
 First off we´ll wanna add user so we dont run around as root (for more information on `useradd` do `man useradd`)<BR>
 `useradd -m -g users -s /bin/bash ussian`<BR>
 swap out `ussian` with the username of your choice<BR>
 And then set the password by doing like so (and again swap out ussian with your username): <BR>
 ´passwd ussian`<BR>
 Then enter the desired password twice.<BR>
-####sudo
+#### sudo
 Now install sudo to be available to be able to do things as root<BR>
 `pacman -S sudo`<BR>
 `pacman` is arch package manager.<BR>
@@ -282,7 +282,7 @@ Now when it´s open scroll down to "user privelege specification" and add the fo
 to save the file click "Ctrl" and "o" then "enter". To exit click "Ctrl" and "x" <BR>
 you can now logout of root and login into your user.<BR>
 
-####pacman.conf adding "multilib" and installing "yaourt" (AUR support)
+#### pacman.conf adding "multilib" and installing "yaourt" (AUR support)
 Open you pacman.conf file<BR>
 `sudo nano /etc/pacman.conf`
 Go down to `#[multilib]` uncomment that, the line under and add the other 3 lines:<BR>
@@ -299,7 +299,7 @@ Then Run this: (Do `man pacman` to learn what the different parameters do)<BR>
 `sudo pacman -Syyu`
 `sudo pacman yaourt`
 
-####Kill that beep sound for good (ie. killing pc speaker)
+#### Kill that beep sound for good (ie. killing pc speaker)
 Jump into a root shell:<BR>
 `sudo su`<BR>
 then do:<BR>
@@ -307,31 +307,31 @@ then do:<BR>
 Then exit to get back to the session with your user.<BR>
 `exit`<BR>
 
-####Some good to install packages
+#### Some good to install packages
 ´sudo pacman -S multilib-devel fakeroot git jshon wget make pkg-config autoconf automake patch`<BR>
 It will ask which one you want. Just hit "enter" to choose default which is all
 Then you´ll be asked if you want to remove "gcc", and here type "y" and hit enter (because default is the capital letter which is "N")<BR>
 And the same as before except its "gcc-libs" instead. just do the same as before "y" -> "enter"<BR>
 To the last one just hit enter (default is "Y")<BR>
 
-####Alsa(sound)
+#### Alsa(sound)
 for sound you´ll need alasa utilities get them like so:<BR>
 `sudo pacman -S alsa-utils`<BR>
 then to edit the volume, mute, unmute and more do:<BR>
 `alsamixer`<BR>
 you control it with the arrow keys, "esc" to save and quit.<BR>
 
-####Xorg for desktop envoirment
+#### Xorg for desktop envoirment
 To install it:<BR>
 `sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa`<BR>
 (do the [Nvidia] install if you have a nvidia card) and then: (only if you have nvidia)<BR>
 `sudo pacman -S nvidia-xconfig`<BR>
 
-####Nvidia
+#### Nvidia
 Some Nvidia goodies<BR>
 `sudo pacman -S nvidia lib32-nvidia-utils`<BR>
 
-####Broadcom wifi
+#### Broadcom wifi
 This only needed if you have broadcom wifi card<BR>
 `yaourt -S broadcom-wl`<BR>
 Then reboot (`systemctl reboot`)<BR>
@@ -347,7 +347,7 @@ Then to enable your wifi dhcp service for your ethernet<BR>
 `systemctl enable dhcpcd@enp0s25.service`<BR>
 Rember to replace "`enp0s25`" with your broadcom device<BR>
 
-####Desktop Envoirment: xfce4 with lxdm
+#### Desktop Envoirment: xfce4 with lxdm
 install some xorg utilites needed for xfce4:<BR>
 `sudo pacman -S xorg-twm xorg-xclock xterm`<BR>
 then to test it:<BR>
@@ -359,7 +359,7 @@ And then enable and start the lxdm<BR>
 `sudo systemctl enable --now lxdm.service`<BR>
 The "`--now´" just starts the service after enabling it<BR>
 
-####Destop Envoirment: sddm with kde plasma
+#### Destop Envoirment: sddm with kde plasma
 install both packages:<BR>
 `sudo pacman -S plasma-desktop sddm<BR>
 Then enable and start sddm:<BR>
@@ -367,19 +367,19 @@ Then enable and start sddm:<BR>
 The plasma-desktop is minimal install so it doesnt contain a terminal emulator,  install a terminal (eg."konsole")<BR>
 `sudo pacman -S konsole`<BR>
 
-####Yakuake
+#### Yakuake
 install the package:<BR>
 `sudo pacman -S yakuake`<BR>
 Make it start at bootup:<BR>
 system settings -> Startup and Shutdown -> Autostart -> Add Program -> under system -> click yakuake -> OK<BR>
 
-####Configure sddm
+#### Configure sddm
 [sddm arch wiki](https://wiki.archlinux.org/index.php/SDDM)<BR>
 
-####Change mouse speed
+#### Change mouse speed
 look here: https://bbs.archlinux.org/viewtopic.php?id=75614<BR>
 
-####File decompressing and sound control and create user folders
+#### File decompressing and sound control and create user folders
 `sudo pacman -S file-roller unrar p7zip pulseaudio pulseaudio-alsa pavucontrol xdg-user-dirs`<BR>
 
 
