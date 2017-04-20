@@ -53,7 +53,7 @@ This means you have a root prompt ready for use. **Be warned** you can potention
 ### First things first
 
 First thing to is remove the anoying beeb sound whenever you tab-complete or try to tab-complete a command. (or doing something the terminal doesnt like in general)<BR>
-```setterm -blength 0```
+`setterm -blength 0`
 
 
 Second thing to do is load the correct keymap (The standard is US)
