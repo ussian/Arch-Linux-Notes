@@ -295,8 +295,8 @@ Include = /etc/pacman.d/mirrorlist
 
 [archlinuxfr]
 SigLevel = Never
-Server = http://repo.archlinux.fr/$arch
-```
+Server = http://repo.archlinux.fr/$arch´´´
+
 To save and exit: "Ctrl" + "o" -> "enter", then "Ctrl" + "x".<BR>
 Then Run this: (Do `man pacman` to learn what the different parameters do)<BR>
 `sudo pacman -Syyu`
@@ -311,7 +311,7 @@ Then exit to get back to the session with your user.<BR>
 `exit`<BR>
 
 #### Some good to install packages
-´sudo pacman -S multilib-devel fakeroot git jshon wget make pkg-config autoconf automake patch`<BR>
+`sudo pacman -S multilib-devel fakeroot git jshon wget make pkg-config autoconf automake patch` <BR>
 It will ask which one you want. Just hit "enter" to choose default which is all
 Then you´ll be asked if you want to remove "gcc", and here type "y" and hit enter (because default is the capital letter which is "N")<BR>
 And the same as before except its "gcc-libs" instead. just do the same as before "y" -> "enter"<BR>
