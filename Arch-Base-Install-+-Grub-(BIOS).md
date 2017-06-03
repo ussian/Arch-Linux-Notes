@@ -67,6 +67,7 @@ This command is only temporary, that means after restart it will be back at US
 
 Next up is to check your internet connection (I recommend that you use a Ethernet connection ie. a cable connection)<BR>
 `ping google.dk`<BR>
+To stop ping'en hit `CTRL + C´ <BR>
 You can allways swap out google with a site you know that you can reach.<BR>
 If you get "Name or service not know" you either typed the site wrong or you got no connection
 
