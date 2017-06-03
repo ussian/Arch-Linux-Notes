@@ -289,13 +289,16 @@ you can now logout of root and login into your user.<BR>
 Open you pacman.conf file<BR>
 `sudo nano /etc/pacman.conf`
 Go down to `#[multilib]` uncomment that, the line under and add the other 3 lines:<BR>
+
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
-
+```
+```
 [archlinuxfr]
 SigLevel = Never
-Server = http://repo.archlinux.fr/$arch´´´
+Server = http://repo.archlinux.fr/$arch
+```
 
 To save and exit: "Ctrl" + "o" -> "enter", then "Ctrl" + "x".<BR>
 Then Run this: (Do `man pacman` to learn what the different parameters do)<BR>
@@ -363,9 +366,9 @@ And then enable and start the lxdm<BR>
 The "`--now´" just starts the service after enabling it<BR>
 
 #### Destop Envoirment: sddm with kde plasma
-install both packages:<BR>
-`sudo pacman -S plasma-desktop sddm<BR>
-Then enable and start sddm:<BR>
+install both packages: <BR>
+`sudo pacman -S plasma-desktop sddm `<BR>
+Then enable and start sddm: <BR>
 `sudo systemctl enable --now sddm.service`<BR>
 The plasma-desktop is minimal install so it doesnt contain a terminal emulator,  install a terminal (eg."konsole")<BR>
 `sudo pacman -S konsole`<BR>
