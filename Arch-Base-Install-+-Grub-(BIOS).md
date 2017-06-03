@@ -9,10 +9,10 @@
 
 ### Pre reading notes
 
- Notes completed xx-xx-xxxx
- Last update xx-xx-xxxx
+ Notes completed 03-06-2017
+ Last update 03-06-2017
 
-To print this file in a descent format, click the "Raw" button in the top right corner of this box.
+To print this file in a decent format, click the "Raw" button in the top right corner of this box.
 Disclaimer: Im no way a Linux or Arch Linux pro user, ive just written down what i did to make it work for me.
 
 
@@ -38,6 +38,8 @@ If it´s booted correctly into the bootmedia, it should greet you with an Arch L
     `Hardware Information` <BR>
     `Reboot` <BR>
     `Power Off` <BR><BR>
+    
+OBS: if you are using a Nvidia 900 series with booting the arch linux. To fix this: highlight your bit version of arch and hit E this will bring up some new  text. Go to the beginning of that text, using the left arrow key, type 'nomodeset' and a space. Then hit enter. [Reference](https://wiki.archlinux.org/index.php/nouveau#NVIDIA_900_series_card_issues) & [video](https://www.youtube.com/watch?v=MMkST5IjSjY)  
     
 You can navigate the menu with the arrow keys and click enter to choose the highlighted option. <BR>
 The option `Boot Arch Linux (x86_64)` wont be availble if your machine can´t run 64 bit OS <BR><BR>
